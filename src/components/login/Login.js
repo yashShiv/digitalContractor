@@ -10,7 +10,11 @@ const Login = (props) => {
     <div>
     <div class="login">
     <h1>Login</h1>
-      <form method="post">
+    <div class = "mybtn">
+      <button class = "btn">Service Men</button>
+      <button class = "btn">Customer</button>
+    </div>
+      <form method="post" className="loginForm">
         <h2>Email</h2>
         <input type="text" name="email" className="loginInput" placeholder="abc@gmail.com" required="required" />
         <h2>Password</h2>
