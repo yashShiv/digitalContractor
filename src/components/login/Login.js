@@ -11,9 +11,13 @@ const Login = (props) => {
     <div class="login">
     <h1>Login</h1>
       <form method="post">
-        <input type="text" name="u" placeholder="Username" required="required" />
-          <input type="password" name="p" placeholder="Password" required="required" />
-          <button type="submit" class="btn btn-primary btn-block btn-large">Let me in.</button>
+        <h2>Email</h2>
+        <input type="text" name="email" className="loginInput" placeholder="abc@gmail.com" required="required" />
+        <h2>Password</h2>
+        <input type="password" name="password" className="loginInput" placeholder="Password" required="required" />
+        <div style={{textAlign:'center'}}>
+        <button type="submit" className="loginBtn">Login</button>
+        </div>
       </form>
     </div>
     </div>
