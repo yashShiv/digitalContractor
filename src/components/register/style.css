@@ -1,28 +1,31 @@
-
-body{
-    background-color: #6a94a5;
-    
-    background:
-          /* top, transparent black, faked with gradient */ 
-          linear-gradient(
-            rgba(0, 0, 0, 0.7), 
-            rgba(0, 0, 0, 0.7)
-          ),
-          /* bottom, image */
-          url("../../loginbg.jpg");
-  }
+.mainRegBody{
   
-  .login { 
+  background-color: #6a94a5;
+  height: 100vh;
+  background:
+        /* top, transparent black, faked with gradient */ 
+        linear-gradient(
+          rgba(0, 0, 0, 0.7), 
+          rgba(0, 0, 0, 0.7)
+        ),
+        /* bottom, image */
+        url("../../loginbg.jpg");
+  padding-top: 10px;
+  background-size: cover;
+}
+  
+  .register { 
     padding: 40px;  
     margin: auto;
-    width: 500px;
+    width: 700px;
     height:fit-content;
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;  transition: 0.3s;
     margin-top: 50px;
+    margin-bottom: 60px;
     background-image: linear-gradient(to right top, #12232e, #122938, #122f41, #11354c, #103b56);
   }
-  .login h1 { 
+  .register h1 { 
     color: rgb(255, 255, 255); 
     text-shadow: 0 0 10px rgba(0,0,0,0.3); 
     letter-spacing:1px; 
@@ -30,7 +33,7 @@ body{
     font-family: sans-serif;
   }
   
-  .login h2{
+  .register h2{
     color: rgb(255, 255, 255); 
     text-shadow: 0 0 10px rgba(0,0,0,0.3); 
     letter-spacing:1px; 
@@ -77,13 +80,13 @@ body{
   }
   
   @media (max-width: 898px){
-    .login{
+    .register{
       width: 400px;
     }
     .loginForm{
       margin-top: 120px !important;
     }
-    .mybtn{
+    .myRegbtn{
       margin-left: 53px !important;
   
     }
@@ -95,13 +98,13 @@ body{
   }
   
   @media (max-width: 458px){
-    .login{
+    .register{
       width: 300px;
     }
     .loginForm{
       margin-top: 150px !important;
     }
-    .mybtn{
+    .myRegbtn{
       margin-left: 7px !important;
   
     }
@@ -126,9 +129,9 @@ body{
     color: rgb(255, 255, 255);
     font-weight: bolder;
   }
-  .mybtn {
+  .myRegbtn {
     padding: 30px;
-    margin-left: 35px;
+    margin-left: 125px;
   
   }
   

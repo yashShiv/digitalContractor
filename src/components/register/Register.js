@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import './style.css'
 /**
 * @author
@@ -7,10 +8,10 @@ import './style.css'
 
 const Register = (props) => {
   return(
-    <div>
-    <div class="login">
+    <div className="mainRegBody">
+    <div class="register">
     <h1>Register</h1>
-    <div class = "mybtn">
+    <div class = "myRegbtn">
       <button class = "btn">Service Men</button>
       <button class = "btn">Customer</button>
     </div>
@@ -30,7 +31,7 @@ const Register = (props) => {
         </div>
       </form>
       <div className="registerLink">
-        <h4>Already registered? <a className="register" href="#">Login</a> here</h4>
+        <h4>Already registered? <NavLink exact to="/login">Login</NavLink> here</h4>
       </div>
     </div>
     </div>
