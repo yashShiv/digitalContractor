@@ -10,6 +10,7 @@
   padding-left: 50px;
 }
 
+
 .top__button {
   font-size: 26px;
   background-color: #dfdfdf;
@@ -17,13 +18,15 @@
   height: 50px;
   border-radius: 10px;
   margin: 20px;
+  transition: all 0.3s;
 }
 
 .top__button:hover,
 .top__button:active,
 .top__button:focus {
-  background-color: #ccc;
+  background-color: #2379c0;
   font-weight: bolder;
+  color: white;
 }
 
 .info {
