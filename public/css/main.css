@@ -1,3 +1,11 @@
+:root {
+  --white-color: #eefbfb;
+  --black-color: #12232e;
+  --primary-color: #4da8da;
+  --secondaty-color: #007cc7;
+  --dark-color: #203647;
+}
+
 html {
   font-size: inherit;
   box-sizing: border-box;
