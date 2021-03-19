@@ -1,0 +1,54 @@
+.frame {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--black-color, red);
+  padding: 50px;
+  border-radius: 10px;
+  gap: 10px;
+  margin: 10px 50px;
+}
+
+.flash {
+  display: flex;
+  flex-direction: row;
+  border-radius: 10px;
+  background-color: var(--dark-color, blue);
+  padding: 10px;
+  gap: 50px;
+}
+
+.flash__img {
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 10px;
+}
+
+.flash_img img {
+  z-index: -1;
+}
+
+.flash__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 60%;
+}
+
+.flash__info__field {
+  color: var(--white-color, blue);
+  background-color: var(--black-color, red);
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.flash__info__field--name {
+  font-size: 32px;
+  font-weight: 500;
+}
+
+.flash__info__field--profession {
+  font-size: 22px;
+  font-style: italic;
+}
