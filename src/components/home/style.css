@@ -1,0 +1,26 @@
+.top {
+  position: relative;
+  background: url("https://via.palceholder.com/1920/1080/ff00ff");
+  min-height: 60vh;
+  margin-bottom: -5%;
+}
+
+.top__button {
+  position: relative;
+  font-size: 26px;
+  background-color: #dfdfdf;
+  width: 200px;
+  height: 50px;
+  border-radius: 10px;
+  margin: 30px;
+  top: 300px;
+  left: 75px;
+}
+
+.info {
+  position: relative;
+  min-height: 50vw;
+  background-color: #dedede;
+  clip-path: polygon(0 0, 100% calc(100% - 45vw), 100% 100%, 0 100%);
+  padding-top: 5%;
+}
