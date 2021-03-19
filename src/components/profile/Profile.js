@@ -1,5 +1,6 @@
 import React from "react";
 import profile_img from "../../carpenter-temp.jpeg";
+import asset_img from "../../gallery/img1.jpg";
 import "./style.css";
 
 const Profile = () => {
@@ -27,8 +28,35 @@ const Profile = () => {
       <div className="detail">
         <h2>Details</h2>
         <div className="detail__pair">
-          <span className="detail__pair__key">Mobile Number: </span>
+          <span className="detail__pair__key">Mobile Number:</span>
           <span className="detail__pair__value">(+91)9123487654</span>
+        </div>
+        <div className="detail__pair">
+          <span className="detail__pair__key">Experience:</span>
+          <span className="detail__pair__value">20 years</span>
+        </div>
+      </div>
+      <div className="gallery">
+        <h2>Gallery</h2>
+        <div className="gallery__carousel">
+          <div className="gallery__carousel__img">
+            <img src={asset_img} alt="" width="320px" height="240px" />
+          </div>
+          <div className="gallery__carousel__img">
+            <img src={asset_img} alt="" width="320px" height="240px" />
+          </div>
+          <div className="gallery__carousel__img">
+            <img src={asset_img} alt="" width="320px" height="240px" />
+          </div>
+          <div className="gallery__carousel__img">
+            <img src={asset_img} alt="" width="320px" height="240px" />
+          </div>
+          <div className="gallery__carousel__img">
+            <img src={asset_img} alt="" width="320px" height="240px" />
+          </div>
+          <div className="gallery__carousel__img">
+            <img src={asset_img} alt="" width="320px" height="240px" />
+          </div>
         </div>
       </div>
     </div>

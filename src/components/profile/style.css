@@ -21,7 +21,6 @@
 .flash__img {
   border-radius: 10px;
   overflow: hidden;
-  margin: 10px;
 }
 
 .flash_img img {
@@ -32,7 +31,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  width: 60%;
+  width: 100%;
 }
 
 .flash__info__field {
@@ -51,4 +50,61 @@
 .flash__info__field--profession {
   font-size: 22px;
   font-style: italic;
+}
+
+.detail {
+  border-radius: 10px;
+  background-color: var(--dark-color, blue);
+  padding: 10px;
+  color: var(--white-color, red);
+}
+
+.detail h2 {
+  margin-bottom: 10px;
+}
+
+.detail__pair {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+  color: var(--white-color, blue);
+  background-color: var(--black-color, red);
+  font-size: 16px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.detail__pair__key {
+  background-color: var(--primary-color, blue);
+  border-radius: 5px 0px 0px 5px;
+  padding: 10px;
+  width: 265px;
+  text-align: right;
+  font-size: 18px;
+}
+
+.detail__pair__value {
+  padding: 10px;
+}
+
+.gallery {
+  border-radius: 10px;
+  background-color: var(--dark-color, blue);
+  padding: 10px;
+  color: var(--white-color, red);
+}
+
+.gallery h2 {
+  margin-bottom: 10px;
+}
+
+.gallery__carousel {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-rows: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.gallery__carousel__img img {
+  border-radius: 10px;
 }
