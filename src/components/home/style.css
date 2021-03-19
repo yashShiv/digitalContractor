@@ -1,0 +1,54 @@
+.top {
+  display: block;
+  position: relative;
+  min-height: 60vh;
+}
+
+.top__buttons {
+  position: absolute;
+  bottom: 90px;
+  padding-left: 50px;
+}
+
+.top__button {
+  font-size: 26px;
+  background-color: #dfdfdf;
+  width: 200px;
+  height: 50px;
+  border-radius: 10px;
+  margin: 20px;
+}
+
+.top__button:hover,
+.top__button:active,
+.top__button:focus {
+  background-color: #ccc;
+  font-weight: bolder;
+}
+
+.info {
+  position: relative;
+  background-color: #dedede;
+  clip-path: polygon(0 0, 100% calc(10%), 100% 100%, 0 100%);
+  padding-top: 7%;
+}
+
+.info__section {
+  display: flex;
+  flex-direction: row;
+  margin: 0 10px;
+  padding: 0 75px;
+  min-height: 50vh;
+}
+
+.info__section:not(:last-child) {
+  margin: 75px 0px;
+}
+
+.info__section__img {
+  min-width: 50%;
+  margin: 10px;
+  background-image: url("../../plumber.jpeg");
+  background-size: contain;
+  background-repeat: no-repeat;
+}

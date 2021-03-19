@@ -1,0 +1,29 @@
+html {
+  font-size: inherit;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  border: 0;
+  margin: 0px;
+  padding: 0px;
+  background-color: inherit;
+  color: inherit;
+}
