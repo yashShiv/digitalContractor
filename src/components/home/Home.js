@@ -7,8 +7,8 @@ const HomePage = () => {
     <div className = "home">
       <div className = "top">
         <div className="top__buttons">
-          <button class="top__button">Register</button>
-          <button class="top__button">Login</button>
+          <button className="top__button">Register</button>
+          <button className="top__button">Login</button>
         </div>
       </div>
       <main className = "info">
