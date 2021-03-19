@@ -1,6 +1,6 @@
 import React from 'react'
 import './style.css'
-import construction from '../../html/construction.jpg';
+import construction from '../../html/about/construction.jpg';
 /**
 * @author
 * @function About
