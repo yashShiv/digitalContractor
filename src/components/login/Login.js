@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import './style.css'
 /**
 * @author
@@ -7,7 +8,7 @@ import './style.css'
 
 const Login = (props) => {
   return(
-    <div>
+    <div class="mainBody">
     <div class="login">
     <h1>Login</h1>
     <div class = "mybtn">
@@ -24,7 +25,7 @@ const Login = (props) => {
         </div>
       </form>
       <div className="registerLink">
-        <h4>New user? <a className="register" href="#">Register</a> here</h4>
+        <h4>New user? <NavLink exact to="/register">Register</NavLink> here</h4>
       </div>
     </div>
     </div>

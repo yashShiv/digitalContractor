@@ -53,7 +53,7 @@ nav{
   @media (max-width: 952px){
     label.logo{
       font-size: 20px;
-      padding-left: 50px;
+      padding-left: 20px;
     }
     nav ul li a{
       font-size: 16px;
@@ -81,12 +81,26 @@ nav{
     nav ul li a{
       font-size: 20px;
     }
-    a:hover,a.active{
+    nav ul li a:hover,a.active{
       background: none;
       color: #006dc7;
     }
     #check:checked ~ ul{
       left: 0;
     }
+
   }
- 
+
+  .menuDropdown{
+    background-color: transparent;
+    border: none;
+    padding: 10px;
+    font-size: 20px;
+    color: white;
+    transition: all 0.3s;
+    border-radius: 6px;
+  }
+
+.menuDropdown:hover{
+  background-color: #006dc7;
+}

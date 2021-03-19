@@ -19,7 +19,7 @@ const Navbar = (props) => {
       <li><a href="#">About</a></li>
       <li><a href="#">Services</a></li>
       <li><a href="#">Contact</a></li>
-      <li><a href="#">Feedback</a></li>
+      <li><button className="menuDropdown"><i className="fa fa-user"></i> Profile</button></li>
     </ul>
   </nav>
     </div>

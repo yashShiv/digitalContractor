@@ -1,7 +1,8 @@
 
-body{
-  background-color: #6a94a5;
+.mainBody{
   
+  background-color: #6a94a5;
+  height: 100vh;
   background:
         /* top, transparent black, faked with gradient */ 
         linear-gradient(
@@ -10,16 +11,19 @@ body{
         ),
         /* bottom, image */
         url("../../loginbg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  padding-top: 80px;
 }
 
 .login { 
-  padding: 40px;  
+  padding: 40px;
   margin: auto;
   width: 500px;
   height:fit-content;
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;  transition: 0.3s;
-  margin-top: 50px;
   background-image: linear-gradient(to right top, #12232e, #122938, #122f41, #11354c, #103b56);
 }
 .login h1 { 
