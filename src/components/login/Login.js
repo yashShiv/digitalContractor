@@ -23,6 +23,9 @@ const Login = (props) => {
         <button type="submit" className="loginBtn">Login</button>
         </div>
       </form>
+      <div className="registerLink">
+        <h4>New user? <a className="register" href="#">Register</a> here</h4>
+      </div>
     </div>
     </div>
    )

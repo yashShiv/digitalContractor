@@ -135,3 +135,15 @@ body{
 .loginForm{
   margin-top: 70px;
 }
+
+.registerLink{
+  text-align: center;
+  color: #ffffff;
+  margin-top: 20px;
+}
+
+.registerLink a{
+  background-color: #2379c0;
+  color: #ffffff;
+  padding: 10px;
+}
