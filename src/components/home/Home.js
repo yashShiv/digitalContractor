@@ -15,7 +15,7 @@ const HomePage = () => {
         <div className="info__section">
           <div className="info__section__text">
             <h1>Best Plumbing Services.</h1>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et culpa in, quibusdam consequatur magni voluptate quidem similique suscipit voluptatem temporibus labore sint saepe doloremque. Tenetur dolorum laboriosam temporibus quasi tempora.
+            <p className="aboutMainContent">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et culpa in, quibusdam consequatur magni voluptate quidem similique suscipit voluptatem temporibus labore sint saepe doloremque. Tenetur dolorum laboriosam temporibus quasi tempora.</p>
           </div>
           <div className="info__section__img"></div>
         </div>
@@ -23,7 +23,7 @@ const HomePage = () => {
           <div className="info__section__img"></div>
           <div className="info__section__text">
             <h1>Best Plumbing Services.</h1>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et culpa in, quibusdam consequatur magni voluptate quidem similique suscipit voluptatem temporibus labore sint saepe doloremque. Tenetur dolorum laboriosam temporibus quasi tempora.
+            <p className="aboutMainContent">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et culpa in, quibusdam consequatur magni voluptate quidem similique suscipit voluptatem temporibus labore sint saepe doloremque. Tenetur dolorum laboriosam temporibus quasi tempora.</p>
           </div>
         </div>
         <div className="info__section">
