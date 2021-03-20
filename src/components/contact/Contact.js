@@ -15,17 +15,17 @@ const Contact = (props) => {
         <label for="fname" className="contactLabel">Name</label>
         <input type="text" id="fname" name="firstname" placeholder="Your name.."></input>
     
-        <label for="email">Email</label>
+        <label for="email" className="contactLabel">Email</label>
         <input type="text" id="email" name="email" placeholder="Your email.."></input>
     
-        <label for="country">State</label>
+        <label for="country" className="contactLabel">State</label>
         <select id="country" name="country">
           <option value="australia">Tamil Nadu</option>
           <option value="canada">Bihar</option>
           <option value="usa">Rajasthan</option>
         </select>
     
-        <label for="subject">Subject</label>
+        <label for="subject" className="contactLabel">Subject</label>
         <textarea id="subject" name="subject" placeholder="What's your query?" ></textarea>
     
         <input type="submit" value="Submit"></input>

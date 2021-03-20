@@ -10,7 +10,7 @@ input[type=text], select, textarea {
   }
   
   input[type=submit] {
-    background-color: #4CAF50;
+    background-color: #006dc7;
     color: white;
     padding: 12px 20px;
     border: none;
@@ -19,7 +19,7 @@ input[type=text], select, textarea {
   }
   
   input[type=submit]:hover {
-    background-color: #45a049;
+    background-color: #006dc7;
   }
   
   .container {
@@ -32,4 +32,9 @@ input[type=text], select, textarea {
 
   .contactBody{
       margin: auto;
+  }
+
+  .contactLabel{
+      color: white;
+      font-size: 20px;
   }
