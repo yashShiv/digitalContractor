@@ -13,27 +13,28 @@
 
 .top__button {
   font-size: 26px;
-  background-color: #dfdfdf;
+  background-color: #2379c0;
   width: 200px;
   height: 50px;
   border-radius: 10px;
   margin: 20px;
-  transition: all 0.3s;
+  transition: all 0.5s;
+  color: white;
 }
 
 .top__button:hover,
 .top__button:active,
 .top__button:focus {
-  background-color: #2379c0;
+  background-color: #1a4f7a;
   font-weight: bolder;
-  color: white;
 }
 
 .info {
   position: relative;
-  background-color: #dedede;
+  background-color: #0e2f42;
   clip-path: polygon(0 0, 100% calc(10%), 100% 100%, 0 100%);
   padding-top: 7%;
+  color: white;
 }
 
 .info__section {

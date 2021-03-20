@@ -28,6 +28,7 @@ input[type=text], select, textarea {
     padding: 20px;
     width: 800px;
     margin: auto;
+    margin-bottom: 50px;
   }
 
   .contactBody{

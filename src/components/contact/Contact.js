@@ -8,10 +8,10 @@ import './style.css'
 const Contact = (props) => {
   return(
     <div className="contactBody">
-    <h3 className="contactHeading">Contact Form</h3>
+    <h3 className="contactHeading">Contact Us</h3>
 
     <div class="container">
-      <form action="/action_page.php">
+      <form>
         <label for="fname" className="contactLabel">Name</label>
         <input type="text" id="fname" name="firstname" placeholder="Your name.."></input>
     
