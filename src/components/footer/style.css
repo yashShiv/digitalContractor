@@ -1,7 +1,7 @@
 .footer {
   padding: 10px 50px;
   color: var(--white-color, blue);
-  background-color: var(--black-color, red);
+  background-color: var(--secondary-color, red);
 }
 
 .no_style_link {
