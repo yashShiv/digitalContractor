@@ -24,8 +24,8 @@ function App() {
 
           <Route exact path="/" component={HomePage} />
         </Switch>
+        <Footer />
       </BrowserRouter>
-      <Footer />
     </div>
   );
 }
