@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import "./style.css";
 
 const HomePage = () => {
@@ -12,8 +13,12 @@ const HomePage = () => {
         <h1>Select the kind of work you need to have, search for it in our services section, filter according to your budget and location.</h1>
         </div>
         <div className="top__buttons">
+        <NavLink exact to="/register">
           <button className="top__button">Register</button>
+        </NavLink>
+        <NavLink exact to="/login">
           <button className="top__button">Login</button>
+        </NavLink>
         </div>
       </div>
       <main className = "info">
