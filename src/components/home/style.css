@@ -10,6 +10,18 @@
   padding-left: 50px;
 }
 
+.no_style_link {
+  text-decoration: none;
+}
+
+.no_style_link:hover,
+.no_style_link:focus,
+.no_style_link:visited,
+.no_style_link:link,
+.no_style_link:active {
+  background-color: inherit;
+  text-decoration: none;
+}
 
 .top__button {
   font-size: 26px;
