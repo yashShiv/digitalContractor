@@ -35,6 +35,10 @@ const Profile = () => {
           <span className="detail__pair__key">Experience:</span>
           <span className="detail__pair__value">20 years</span>
         </div>
+        <div className="detail__pair">
+          <span className="detail__pair__key">Charge:</span>
+          <span className="detail__pair__value">Rs. 20/ sq. ft.</span>
+        </div>
       </div>
       <div className="gallery">
         <h2>Gallery</h2>

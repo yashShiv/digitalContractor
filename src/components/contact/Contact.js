@@ -8,7 +8,7 @@ import './style.css'
 const Contact = (props) => {
   return(
     <div className="contactBody">
-    <h3>Contact Form</h3>
+    <h3 className="contactHeading">Contact Form</h3>
 
     <div class="container">
       <form action="/action_page.php">
@@ -26,7 +26,7 @@ const Contact = (props) => {
         </select>
     
         <label for="subject" className="contactLabel">Subject</label>
-        <textarea id="subject" name="subject" placeholder="What's your query?" ></textarea>
+        <textarea id="subject" name="subject" placeholder="What's your query?" rows="6"></textarea>
     
         <input type="submit" value="Submit"></input>
       </form>
