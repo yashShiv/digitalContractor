@@ -12,6 +12,11 @@ html {
   margin: 0;
 }
 
+p {
+  margin: 0;
+  paddin: 0;
+}
+
 *,
 *::after,
 *::before {
