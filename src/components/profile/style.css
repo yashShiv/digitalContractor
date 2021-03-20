@@ -108,3 +108,38 @@
 .gallery__carousel__img img {
   border-radius: 10px;
 }
+
+.reviews {
+  border-radius: 10px;
+  background-color: var(--dark-color, blue);
+  padding: 10px;
+  color: var(--white-color, red);
+}
+
+.reviews h2 {
+  margin-bottom: 10px;
+}
+
+.userreview {
+  background-color: var(--black-color, red);
+  border-radius: 10px;
+}
+
+.user {
+  background-color: var(--primary-color, blue);
+  padding: 10px;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.username {
+  font-size: 18px;
+}
+
+.ratings {
+  margin-left: 20px;
+}
+
+.review {
+  padding: 10px;
+  
+}

@@ -59,6 +59,17 @@ const Profile = () => {
           </div>
         </div>
       </div>
+      <div className="reviews">
+        <h2>Reviews</h2>
+        <div className="userreview">
+          <div className="user">
+            <span className="username">Abhisar Shukla</span><span className="ratings">⭐⭐⭐⭐</span>
+          </div>
+          <div className="review">
+            <p>This guy is genius, an expert in carpentry. Just ask him anything and he will make it.</p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
