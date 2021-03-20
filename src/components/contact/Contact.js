@@ -8,8 +8,8 @@ import './style.css'
 const Contact = (props) => {
   return(
     <div className="contactBody">
-    <h3 className="contactHeading">Contact Us</h3>
-
+    <h1 className="contactHeading">Contact Us</h1>
+    <p className="contactBody"> Having problems in receiving our services? Leave us a message here...</p>
     <div class="container">
       <form>
         <label for="fname" className="contactLabel">Name</label>
