@@ -31,7 +31,7 @@ const About = (props) => {
       <div className="card">
         <h1 style={{marginBottom:"20px"}} className="aboutHeading">A Quick Tour</h1>
         <div className="videotags">
-        <iframe className="iframeVideo" height="200" src="https://www.youtube.com/embed/1WRli_cYfvw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe title="ifr" className="iframeVideo" height="200" src="https://www.youtube.com/embed/1WRli_cYfvw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </div>
       <div className="card">
