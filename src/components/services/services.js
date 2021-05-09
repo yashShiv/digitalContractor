@@ -2,12 +2,14 @@ import React from 'react'
 import Filter from '../filter/filter'
 import ServiceList from '../serviceList/serviceList'
 import "./style.css"
+
 /**
 * @author
 * @function Services
 **/
 
 const Services = (props) => {
+    
   return(
         <div>
             <div className="services_main">
