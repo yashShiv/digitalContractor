@@ -31,7 +31,7 @@ const Contracts = (props) => {
                             <h2 className="">{item.name}</h2>
                             <hr style={{marginTop:'5px', marginBottom:'10px'}}></hr>
                             <h2 className="card_details">Contact: {item.contact}</h2>
-                            <h2 className="card_details">Service: {item.serviceType}</h2>
+                            <h2 className="card_details">Required Service: {item.serviceType}</h2>
                             <h2 className="card_details">Location: {item.location}</h2> 
                             <div>
                                 <button className="button_accept">Accept</button>
