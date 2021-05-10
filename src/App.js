@@ -35,19 +35,6 @@ function App() {
   );
 }
 
-// class Appl extends Component {
-//   state = {
-//     visible: true
-//   };
-
-//   render() {
-//     return (
-//       <div className="Appl">
-//         <Register/>
-//       </div>
-//     );
-//   }
-// }
 
 
 export default App;
