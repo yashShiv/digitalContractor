@@ -19,11 +19,11 @@ export default class ValiationForm extends React.Component {
   state = intialState;
 
   handleChange = event => {
-    const isCheckbox = event.target.type === "checkbox";
+    //const isCheckbox = event.target.type === "checkbox";
     this.setState({
-      [event.target.name]: isCheckbox
-        ? event.target.checked
-        : event.target.value
+      [event.target.name]: 
+        //? event.target.checked
+         event.target.value
     });
   };
 
@@ -62,7 +62,7 @@ export default class ValiationForm extends React.Component {
     return (
 
       <div className="mainRegBody">
-      <div className="bkg"></div>
+      <div className="bkg"></div> 
       <div class="register">
         <h1>Register</h1>
         <div class="myRegbtn">
@@ -72,7 +72,7 @@ export default class ValiationForm extends React.Component {
         <form className="loginForm">
           <h2>Email</h2>
           <input
-            type="text"
+            type="email"
             name="email"
             className="loginInput"
             value={this.state.email}
@@ -87,12 +87,12 @@ export default class ValiationForm extends React.Component {
           <h2>Name</h2>
           <input
             type="text"
-            name="username"
+            name="name"
             className="loginInput"
             value={this.state.name}
             onChange = {this.handleChange}
             placeholder="Name"
-            // required="required"
+            required="required"
           />
           <div style={{ fontSize: 12, color: "red" }}>
             {this.state.nameError}
