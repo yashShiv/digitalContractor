@@ -1,3 +1,4 @@
+import React, { Component } from "react";
 import "./App.css";
 import Login from "./components/login/Login";
 import { BrowserRouter } from "react-router-dom";
@@ -31,4 +32,20 @@ function App() {
   );
 }
 
+// class Appl extends Component {
+//   state = {
+//     visible: true
+//   };
+
+//   render() {
+//     return (
+//       <div className="Appl">
+//         <Register/>
+//       </div>
+//     );
+//   }
+// }
+
+
 export default App;
+

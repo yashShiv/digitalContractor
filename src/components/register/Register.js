@@ -1,14 +1,67 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+//import Validation from "F:\VIT\Sem 6\Web dev project\digitalContractor\src\components\validation\Validation"
 import "./style.css";
-/**
- * @author
- * @function Register
- **/
 
-const Register = (props) => {
-  return (
-    <div className="mainRegBody">
+const intialState={
+  name:"",
+  email: "",
+  password: "",
+  phone: "",
+  location: "" ,
+  nameError:"",
+  emailError: "",
+  passwordError: ""
+
+};
+
+export default class ValiationForm extends React.Component {
+  state = intialState;
+
+  handleChange = event => {
+    const isCheckbox = event.target.type === "checkbox";
+    this.setState({
+      [event.target.name]: isCheckbox
+        ? event.target.checked
+        : event.target.value
+    });
+  };
+
+  validate = () => {
+
+    let nameError = "";
+    let emailError = "";
+
+    if (!this.state.name) {
+      nameError = "name cannot be blank";
+    }
+
+    if (!this.state.email.includes("@")) {
+      emailError = "invalid email";
+    }
+
+    if (emailError || nameError) {
+      this.setState({ emailError, nameError });
+      return false;
+    }
+
+    return true;
+  };
+
+  handleSubmit = event => {
+    event.preventDefault();
+    const isValid = this.validate();
+    if (isValid) {
+      console.log(this.state);
+      // clear form
+      this.setState(intialState);
+    }
+  };
+
+  render() {
+    return (
+
+      <div className="mainRegBody">
       <div className="bkg"></div>
       <div class="register">
         <h1>Register</h1>
@@ -22,17 +75,28 @@ const Register = (props) => {
             type="text"
             name="email"
             className="loginInput"
+            value={this.state.email}
+            onChange = {this.handleChange}
             placeholder="abc@gmail.com"
             required="required"
           />
+           <div style={{ fontSize: 12, color: "red" }}>
+            {this.state.emailError}
+          </div>
+
           <h2>Name</h2>
           <input
             type="text"
             name="username"
             className="loginInput"
+            value={this.state.name}
+            onChange = {this.handleChange}
             placeholder="Name"
-            required="required"
+            //required="required"
           />
+          <div style={{ fontSize: 12, color: "red" }}>
+            {this.state.nameError}
+          </div>
           <h2>Phone</h2>
           <input
             type="text"
@@ -54,9 +118,14 @@ const Register = (props) => {
             type="password"
             name="password"
             className="loginInput"
+            value={this.state.password}
+            onChange={this.handleChange}
             placeholder="Password"
             required="required"
           />
+          <div style={{ fontSize: 12, color: "red" }}>
+            {this.state.passwordError}
+          </div>
           <div style={{ textAlign: "center" }}>
             <button type="submit" className="loginBtn">
               Register
@@ -74,7 +143,7 @@ const Register = (props) => {
         </div>
       </div>
     </div>
-  );
-};
 
-export default Register;
+    );
+  }
+}
