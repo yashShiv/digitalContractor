@@ -1,0 +1,41 @@
+.filter_button{
+    background-color: transparent;
+    padding:10px;
+    border: 2px solid white;
+    border-radius: 8px;
+    margin:5px;
+}
+
+.filter_button:hover{
+    background-color: rgb(23, 59, 100);
+}
+
+.services_main{
+    width:80%;
+    margin: auto;
+    color: white;
+    overflow: hidden;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.services_main::after{
+    content: "";
+    clear: both;
+}
+
+.services_filter{
+    float: left;
+    width: 25%;
+    padding: 25px;
+    margin-top: 100px;
+    background-color: #006dc7;
+    border-radius: 7px;
+}
+
+.services_list{
+    float: left;
+    width: 75%;
+    padding: 25px;
+}
+

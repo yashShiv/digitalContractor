@@ -32,3 +32,7 @@
     float: right;
     font-size: 20px;
 }
+
+.list_button:hover{
+   background-color: #2580ca; 
+}

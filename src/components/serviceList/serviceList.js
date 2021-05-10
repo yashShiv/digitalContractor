@@ -1,5 +1,4 @@
 import React from 'react'
-import DummyServices from '../../data/dummyservices';
 import "./style.css"
 
 /**
@@ -7,9 +6,8 @@ import "./style.css"
 * @function ServiceList
 **/
 
-const ServiceList = (props) => {
+const ServiceList = ({list}) => {
 
-  const [list, setList] = React.useState(DummyServices);
 
   return(
     <div className="list_main">
@@ -23,12 +21,12 @@ const ServiceList = (props) => {
                   <img alt="profile" width="200" height="150" src={item.image}></img>
                 </div>
                 <div className="list_card_column">
-                  <h3 className="list_data">{item.name}</h3>
-                  <h3 className="list_data">{item.charges}</h3>
+                  <h3 className="list_data">Name: {item.name}</h3>
+                  <h3 className="list_data">Charges: {item.charges}</h3>
                 </div>
                 <div className="list_card_column">
                   <h3 className="list_data">{item.serviceType}</h3>
-                  <h3 className="list_data">{item.location}</h3>
+                  <h3 className="list_data">Location: {item.location}</h3>
                   <button className="list_button">Know More</button>
                 </div>
 
