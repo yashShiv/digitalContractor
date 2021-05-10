@@ -1,0 +1,73 @@
+.contracts_column {
+    float: left;
+    width: 33%;
+    padding: 0 10px;
+    padding: 20px;
+  }
+  
+.contracts_row {
+
+}
+  
+.contracts_row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+@media screen and (max-width: 900px) {
+    .contracts_column {
+        width: 100% ;
+        display: block;
+        margin-bottom: 20px;
+    }
+  }
+  
+.contracts_card {
+    box-shadow: 0 4px 8px 0 rgba(86, 161, 184, 0.2);
+    padding: 16px;
+    text-align: center;
+    background-color: #17425a;
+  }
+
+.contracts_main{
+    margin: auto;
+    width:80%;
+    text-align: center;
+    color: white;
+}
+
+.profile_photo{
+    width: 250px;
+    height:250px;
+}
+
+.button_accept{
+    background-color: green;
+    padding: 8px;
+    margin:20px;
+    font-size: 25px;
+    border-radius: 7px;
+
+}
+
+.button_decline{
+    background-color: red;
+    padding: 8px;
+    margin:20px;
+    font-size: 25px;
+    border-radius: 7px;
+}
+
+.card_details{
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
+.button_accept:hover{
+    background-color: rgb(4, 116, 4);
+}
+
+.button_decline:hover{
+    background-color: rgb(212, 5, 5);
+}
