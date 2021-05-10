@@ -41,7 +41,7 @@ export default class ValiationForm extends React.Component {
     }
 
     if (emailError || nameError) {
-      this.setState({ emailError, nameError });
+      this.setState({ emailError:emailError, nameError:nameError });
       return false;
     }
 
@@ -72,7 +72,7 @@ export default class ValiationForm extends React.Component {
         <form className="loginForm">
           <h2>Email</h2>
           <input
-            type="email"
+            type="text"
             name="email"
             className="loginInput"
             value={this.state.email}
@@ -127,7 +127,7 @@ export default class ValiationForm extends React.Component {
             {this.state.passwordError}
           </div>
           <div style={{ textAlign: "center" }}>
-            <button type="submit" className="loginBtn">
+            <button type="button" className="loginBtn" onClick={this.handleSubmit}>
               Register
             </button>
           </div>
