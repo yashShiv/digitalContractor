@@ -11,7 +11,8 @@ const intialState={
   location: "" ,
   nameError:"",
   emailError: "",
-  passwordError: ""
+  passwordError: "",
+  phoneError: "",
 
 };
 
@@ -31,17 +32,34 @@ export default class ValiationForm extends React.Component {
 
     let nameError = "";
     let emailError = "";
+    let passwordError = "";
+    let phoneError = "";
 
-    if (!this.state.name) {
-      nameError = "name cannot be blank";
+    var ck_name = /^[A-Za-z0-9 ]{3,20}$/;
+    var ck_email = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+    var ck_password = /^[A-Za-z0-9!@#$%^&*()_]{6,20}$/;
+    var ck_phone = /^\0-9d{11}$/;
+
+    if (!ck_name.test(this.state.name)) {
+      nameError = "Alphabets, numbers and space(' ') no special characters min 3 and max 20 characters.";
+    }
+    
+    if (!ck_email.test(this.state.email)) {
+      emailError = "Invalid Email";
     }
 
-    if (!this.state.email.includes("@")) {
-      emailError = "invalid email";
+    if (!ck_password.test(this.state.password)) {
+      passwordError = "Password supports special characters and here min length 6 max 20 charters.";
     }
 
-    if (emailError || nameError) {
-      this.setState({ emailError:emailError, nameError:nameError });
+    if (!ck_phone.test(this.state.phone)) {
+      phoneError = "Must contain 11 digits only";
+    }
+
+    
+
+    if (emailError || nameError || passwordError || phoneError ) {
+      this.setState({ emailError:emailError, nameError:nameError , passwordError:passwordError , phoneError:phoneError  });
       return false;
     }
 
