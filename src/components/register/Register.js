@@ -38,7 +38,7 @@ export default class ValiationForm extends React.Component {
     var ck_name = /^[A-Za-z0-9 ]{3,20}$/;
     var ck_email = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
     var ck_password = /^[A-Za-z0-9!@#$%^&*()_]{6,20}$/;
-    var ck_phone = /^\0-9d{11}$/;
+    var ck_phone = /^\d{10}$/;
 
     if (!ck_name.test(this.state.name)) {
       nameError = "Alphabets, numbers and space(' ') no special characters min 3 and max 20 characters.";
@@ -53,10 +53,8 @@ export default class ValiationForm extends React.Component {
     }
 
     if (!ck_phone.test(this.state.phone)) {
-      phoneError = "Must contain 11 digits only";
+      phoneError = "Must contain 10 digits only";
     }
-
-    
 
     if (emailError || nameError || passwordError || phoneError ) {
       this.setState({ emailError:emailError, nameError:nameError , passwordError:passwordError , phoneError:phoneError  });
