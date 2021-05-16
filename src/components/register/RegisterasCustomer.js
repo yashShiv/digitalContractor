@@ -80,6 +80,7 @@ export default class RegisterAsCust extends React.Component {
     return (
 
       <>
+      <h2 style={{textAlign:"center", marginTop:"45px"}}>Services according to your needs...</h2>
         <form className="loginForm">
           <h2>Email</h2>
           <input
