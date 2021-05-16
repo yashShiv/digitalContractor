@@ -13,6 +13,7 @@ import Contact from "./components/contact/Contact";
 import Services from "./components/services/services";
 import Filter from "./components/filter/filter";
 import Contracts from "./components/Contracts/contracts";
+import VProfile from "./components/ViewProfile/vProfile";
 
 function App() {
   return (
@@ -28,6 +29,9 @@ function App() {
           <Route exact path="/services" component={Filter} />
           <Route exact path="/" component={HomePage} />
           <Route exact path="/contracts" component={Contracts} />
+          <Route exact path="/viewprofile/:userID">
+              <VProfile/>
+            </Route>
         </Switch>
         <Footer />
       </BrowserRouter>

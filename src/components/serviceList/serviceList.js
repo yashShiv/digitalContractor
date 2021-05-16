@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import "./style.css"
 
 /**
@@ -27,7 +28,7 @@ const ServiceList = ({list}) => {
                 <div className="list_card_column">
                   <h3 className="list_data">{item.serviceType}</h3>
                   <h3 className="list_data">Location: {item.location}</h3>
-                  <button className="list_button">Know More</button>
+                  <NavLink className="list_button" to={`/viewprofile/${item.id}`}>Know More</NavLink>
                 </div>
 
               </div>
