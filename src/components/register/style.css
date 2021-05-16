@@ -137,6 +137,7 @@
   transition: all 0.3s;
 }
 .btn:hover,
+.btnActive,
 .btn:active,
 .loginBtn:hover {
   background-color: #2379c0;
