@@ -38,7 +38,7 @@ export default class RegisterAsCust extends React.Component {
     var ck_name = /^[A-Za-z0-9 ]{3,20}$/;
     var ck_email = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
     var ck_password = /^[A-Za-z0-9!@#$%^&*()_]{6,20}$/;
-    var ck_phone = /^\0-9d{11}$/;
+    var ck_phone = /^\d{10}$/;
 
     if (!ck_name.test(this.state.name)) {
       nameError = "Alphabets, numbers and space(' ') no special characters min 3 and max 20 characters.";
@@ -67,11 +67,43 @@ export default class RegisterAsCust extends React.Component {
   };
 
   handleSubmit = event => {
-    event.preventDefault();
     const isValid = this.validate();
     if (isValid) {
       console.log(this.state);
-      // clear form
+      const formElement = document.getElementById("login-form");
+      const formData = new FormData(formElement);
+      const [firstname, lastname] = formData.get('name').split(" ", 2);
+      let requestBody = {
+        name: {
+          firstname: firstname,
+          lastname: lastname,
+        },
+        email: "",
+        password: "",
+        mobile_number: "",
+        address: {
+          city: "",
+        }
+      };
+      requestBody.email = formData.get('email');
+      requestBody.password = formData.get('password');
+      requestBody.mobile_number = formData.get('phone');
+      requestBody.address.city = formData.get('location');
+      fetch('/signup/c', {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(requestBody)
+      }).then(res=>res.json())
+      .then(data => {
+        if(data.token) {
+          console.log("SignUp Successful");
+        } else {
+          console.log(data)
+        }
+      });
+      event.preventDefault();
       this.setState(intialState);
     }
   };
@@ -81,7 +113,7 @@ export default class RegisterAsCust extends React.Component {
 
       <>
       <h2 style={{textAlign:"center", marginTop:"45px"}}>Services according to your needs...</h2>
-        <form className="loginForm">
+        <form className="loginForm" id="login-form">
           <h2>Email</h2>
           <input
             type="text"
@@ -113,14 +145,21 @@ export default class RegisterAsCust extends React.Component {
           <input
             type="text"
             name="phone"
+            value={this.state.phone}
+            onChange={this.handleChange}
             className="loginInput"
             placeholder="Phone number"
             required="required"
           />
+          <div style={{ fontSize: 12, color: "red" }}>
+            {this.state.phoneError}
+          </div>
           <h2>Location</h2>
           <input
             type="text"
             name="location"
+            value={this.state.location}
+            onChange={this.handleChange}
             className="loginInput"
             placeholder="Your city"
             required="required"
