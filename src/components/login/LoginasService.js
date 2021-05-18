@@ -70,6 +70,8 @@ export default class LoginAsCust extends React.Component {
         if(data.token) {
           localStorage.setItem("jwt", data.token)
           console.log("Signin Successful");
+          window.open('/','_self')
+
         } else {
           console.log(data)
         }
