@@ -1,77 +1,66 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import profile_img from "../../carpenter-temp.jpeg";
 import asset_img from "../../gallery/img1.jpg";
 import "./style.css";
 
 const Profile = () => {
-  const name = "Yashaswi Shivank";
-  const profession = "Carpenter";
-  const joined = "Jan 4th 2022";
-  const experience = 2;
-  const scale = "year";
+  const [userData, setUserData] = useState({})
+  let type = localStorage.getItem("type");
+  useEffect(() => {
+    if (type === "seller") {
+      fetch('/api/s/user', {
+        method: "GET",
+        headers: {
+          authorization: `Bearer ${localStorage.getItem('jwt')}`
+        }
+      }).then(response=>response.json())
+        .then(data => {
+          setUserData(data.data);
+        })
+    } else {
+      fetch('/api/c/user', {
+        method: "GET",
+        headers: {
+          authorization: `Bearer ${localStorage.getItem('jwt')}`
+        }
+      }).then(response=>response.json())
+        .then(data => {
+          setUserData(data.data);
+        })
+    }
+  }, [type]);
+
+  const getAddress = (address) => {
+    if (!address)
+      return undefined;
+    return `${address?.house_no || ""} ${address?.city || ""} ${address?.state || ""} ${address?.zip || ""}`;
+  }
 
   return (
     <div className="frame">
       <div className="flash">
-        <div className="flash__img">
-          <img src={profile_img} alt="" width="320px" height="240px" />
-        </div>
         <div className="flash__info">
-          <span className="flash__info__field flash__info__field--name">{`${name}`}</span>
-          <span className="flash__info__field flash__info__field--profession">{`${profession}`}</span>
-          <span className="flash__info__field">Joined {`${joined}`}</span>
-          <span className="flash__info__field">
-            For {`${experience}`} {`${scale}`}
-          </span>
+          <span className="flash__info__field flash__info__field--name">{`${userData?.name?.firstname || "Loading"} ${userData?.name?.lastname || "Loading"}`}</span>
+          <span className={"flash__info__field flash__info__field--profession" + (type === 'customer' ? ' hidden' : '')}>{`${userData?.service || "Loading"}`}</span>
         </div>
       </div>
       <div className="detail">
         <h2>Details</h2>
         <div className="detail__pair">
           <span className="detail__pair__key">Mobile Number:</span>
-          <span className="detail__pair__value">(+91)9123487654</span>
+          <span className="detail__pair__value">{`${userData?.mobile_number || "Loading"}`}</span>
         </div>
-        <div className="detail__pair">
+        <div className={"detail__pair" + (type === 'customer' ? ' hidden' : '')}>
           <span className="detail__pair__key">Experience:</span>
-          <span className="detail__pair__value">20 years</span>
+          <span className="detail__pair__value">{`${userData?.experience || "Loading"}`} years</span>
+        </div>
+        <div className={"detail__pair" + (type === 'customer' ? ' hidden' : '')}>
+          <span className="detail__pair__key">Charge:</span>
+          <span className="detail__pair__value">Rs. {`${userData?.rate || "Loading"}`}/ {`${userData?.unit || "Loading"}`}</span>
         </div>
         <div className="detail__pair">
-          <span className="detail__pair__key">Charge:</span>
-          <span className="detail__pair__value">Rs. 20/ sq. ft.</span>
-        </div>
-      </div>
-      <div className="gallery">
-        <h2>Gallery</h2>
-        <div className="gallery__carousel">
-          <div className="gallery__carousel__img">
-            <img src={asset_img} alt="" width="320px" height="240px" />
-          </div>
-          <div className="gallery__carousel__img">
-            <img src={asset_img} alt="" width="320px" height="240px" />
-          </div>
-          <div className="gallery__carousel__img">
-            <img src={asset_img} alt="" width="320px" height="240px" />
-          </div>
-          <div className="gallery__carousel__img">
-            <img src={asset_img} alt="" width="320px" height="240px" />
-          </div>
-          <div className="gallery__carousel__img">
-            <img src={asset_img} alt="" width="320px" height="240px" />
-          </div>
-          <div className="gallery__carousel__img">
-            <img src={asset_img} alt="" width="320px" height="240px" />
-          </div>
-        </div>
-      </div>
-      <div className="reviews">
-        <h2>Reviews</h2>
-        <div className="userreview">
-          <div className="user">
-            <span className="username">Abhisar Shukla</span><span className="ratings">⭐⭐⭐⭐</span>
-          </div>
-          <div className="review">
-            <p>This guy is genius, an expert in carpentry. Just ask him anything and he will make it.</p>
-          </div>
+          <span className="detail__pair__key">Address:</span>
+          <span className="detail__pair__value">{`${getAddress(userData?.address) || "Loading"}`}</span>
         </div>
       </div>
     </div>
