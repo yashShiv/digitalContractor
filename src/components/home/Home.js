@@ -12,14 +12,18 @@ const HomePage = () => {
         <h1>We provide specialised workers & professionals from all sorts of fields.</h1>
         <h1>Select the kind of work you need to have, search for it in our services section, filter according to your budget and location.</h1>
         </div>
-        <div className="top__buttons">
-        <NavLink className="no_style_link" exact to="/register">
-          <button className="top__button">Register</button>
-        </NavLink>
-        <NavLink className="no_style_link" exact to="/login">
-          <button className="top__button">Login</button>
-        </NavLink>
+        {(localStorage.getItem("jwt")==null
+          &&
+          <div className="top__buttons">
+            <NavLink className="no_style_link" exact to="/register">
+              <button className="top__button">Register</button>
+            </NavLink>
+            <NavLink className="no_style_link" exact to="/login">
+              <button className="top__button">Login</button>
+            </NavLink>
         </div>
+        )}
+        
       </div>
       <main className = "info">
         <div className="info__section">
