@@ -89,11 +89,17 @@ export default class RegisterAsService extends React.Component {
         },
         email: "",
         password: "",
+        mobile_number: "",
         service: "",
+        address: {
+          city: "",
+        }
       };
       requestBody.email = formData.get('email');
       requestBody.password = formData.get('password');
       requestBody.service = formData.get('service');
+      requestBody.mobile_number = formData.get('phone');
+      requestBody.address.city = formData.get('location');
       fetch('/signup/s', {
         method: "POST",
         headers: {
@@ -163,6 +169,8 @@ export default class RegisterAsService extends React.Component {
           <input
             type="text"
             name="location"
+            value={this.state.location}
+            onChange={this.handleChange}
             className="loginInput"
             placeholder="Your city"
             required="required"
