@@ -7,6 +7,12 @@ import './Navbar.css'
 **/
 
 const Navbar = (props) => {
+
+  function logout(){
+    localStorage.clear()
+    window.open('/','_self')
+
+  }
   return(
     <div>
     <nav>
@@ -27,8 +33,12 @@ const Navbar = (props) => {
         localStorage.getItem("type")==="seller" &&
         <li><NavLink exact to="/contracts">Contracts</NavLink></li>
       )}
+      
       <li><NavLink exact to="/contact">Contact</NavLink></li>
       <li><NavLink exact to="/profile"><i className="fa fa-user"></i> Profile</NavLink></li>
+      {(localStorage.getItem("jwt")!=null &&
+        <button onClick={logout} className="logout">Logout</button>
+      )}
     </ul>
   </nav>
     </div>
