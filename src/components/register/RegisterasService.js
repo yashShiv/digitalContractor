@@ -9,11 +9,12 @@ const intialState={
   password: "",
   phone: "",
   location: "" ,
+  service: "",
   nameError:"",
   emailError: "",
   passwordError: "",
   phoneError: "",
-
+  serviceError: "",
 };
 
 export default class RegisterAsService extends React.Component {
@@ -34,11 +35,12 @@ export default class RegisterAsService extends React.Component {
     let emailError = "";
     let passwordError = "";
     let phoneError = "";
+    let serviceError = "";
 
-    var ck_name = /^[A-Za-z0-9 ]{3,20}$/;
+    var ck_name = /^[A-Za-z0-9 ]{3,100}$/;
     var ck_email = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
     var ck_password = /^[A-Za-z0-9!@#$%^&*()_]{6,20}$/;
-    var ck_phone = /^\0-9d{11}$/;
+    var ck_phone = /^\d{10}$/;
 
     if (!ck_name.test(this.state.name)) {
       nameError = "Alphabets, numbers and space(' ') no special characters min 3 and max 20 characters.";
@@ -53,26 +55,61 @@ export default class RegisterAsService extends React.Component {
     }
 
     if (!ck_phone.test(this.state.phone)) {
-      phoneError = "Must contain 11 digits only";
+      phoneError = "Must contain 10 digits only";
+    }
+
+    if (this.state.service === "") {
+      serviceError = "Please choose a service";
     }
 
     
-
-    if (emailError || nameError || passwordError || phoneError ) {
-      this.setState({ emailError:emailError, nameError:nameError , passwordError:passwordError , phoneError:phoneError  });
+    if (emailError || nameError || passwordError || phoneError || serviceError ) {
+      this.setState({ emailError:emailError, nameError:nameError , passwordError:passwordError , phoneError:phoneError, serviceError:serviceError  });
+      console.log("Validation Error");
       return false;
     }
 
+    console.log("Validation Successful");
     return true;
   };
 
   handleSubmit = event => {
-    event.preventDefault();
     const isValid = this.validate();
+    console.log(this.state)
+    console.log(isValid);
     if (isValid) {
       console.log(this.state);
-      // clear form
+      const formElement = document.getElementById("login-form");
+      const formData = new FormData(formElement);
+      const [firstname, lastname] = formData.get('name').split(" ", 2);
+      let requestBody = {
+        name: {
+          firstname: firstname,
+          lastname: lastname,
+        },
+        email: "",
+        password: "",
+        service: "",
+      };
+      requestBody.email = formData.get('email');
+      requestBody.password = formData.get('password');
+      requestBody.service = formData.get('service');
+      fetch('/signup/s', {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(requestBody)
+      }).then(res=>res.json())
+      .then(data => {
+        if(data.token) {
+          console.log("SignUp Successful");
+        } else {
+          console.log(data)
+        }
+      });
       this.setState(intialState);
+      event.preventDefault();
     }
   };
 
@@ -81,7 +118,7 @@ export default class RegisterAsService extends React.Component {
 
       <>
       <h2 style={{textAlign:"center", marginTop:"45px"}}>Boost your reach to all over India...</h2>
-        <form className="loginForm">
+        <form className="loginForm" id="login-form">
           <h2>Email</h2>
           <input
             type="text"
@@ -113,10 +150,15 @@ export default class RegisterAsService extends React.Component {
           <input
             type="text"
             name="phone"
+            value={this.state.phone}
+            onChange={this.handleChange}
             className="loginInput"
             placeholder="Phone number"
             required="required"
           />
+          <div style={{ fontSize: 12, color: "red" }}>
+            {this.state.phoneError}
+          </div>
           <h2>Location</h2>
           <input
             type="text"
@@ -125,6 +167,17 @@ export default class RegisterAsService extends React.Component {
             placeholder="Your city"
             required="required"
           />
+          <h2>Service</h2>
+          <select name="service" required="required" onChange={this.handleChange} value={this.state.service}>
+            <option value="">Please select a service</option>
+            <option value="Carpenter">Carpenter</option>
+            <option value="Electrician">Electrician</option>
+            <option value="Plumber">Plumber</option>
+            <option value="Builder">Builder</option>
+          </select>
+          <div style={{ fontSize: 12, color: "red" }}>
+            {this.state.serviceError}
+          </div>
           <h2>Password</h2>
           <input
             type="password"

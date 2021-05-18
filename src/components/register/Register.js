@@ -27,7 +27,7 @@ const Register = (props) => {
         <div className="bkg"></div> 
         <div class="register">
             <h1>Register</h1>
-            <div class="myRegbtn">
+            <div className="myRegbtn">
             <button className={service=== true ? 'btn btnActive':'btn'} onClick={toggleToService}>Service Men</button>
             <button className={customer=== true ? 'btn btnActive':'btn'} onClick={toggleToCustomer}>Customer</button>
             </div>
