@@ -45,11 +45,37 @@ export default class LoginAsCust extends React.Component {
   };
 
   handleSubmit = event => {
-    event.preventDefault();
     const isValid = this.validate();
+    console.log(isValid);
     if (isValid) {
       console.log(this.state);
+      console.log("signin")
+      const formElement = document.getElementById("login-form1");
+      const formData = new FormData(formElement);
+      let requestBody = {
+        email: "",
+        password: "",
+      };
+      requestBody.email = formData.get('email');
+      requestBody.password = formData.get('password');
+      
+      fetch('/signin/s', {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(requestBody)
+      }).then(res=>res.json())
+      .then(data => {
+        if(data.token) {
+          localStorage.setItem("jwt", data.token)
+          console.log("Signin Successful");
+        } else {
+          console.log(data)
+        }
+      });
       this.setState(intialState);
+      event.preventDefault();
     }
   };
 
@@ -58,7 +84,7 @@ export default class LoginAsCust extends React.Component {
     return (
       <>
       <h2 style={{textAlign:"center", marginTop:"45px"}}>Services according to your needs...</h2>
-      <form method="post" className="loginForm">
+      <form className="loginForm" id="login-form1">
 
         <h2>Email</h2>
         <input type="text" name="email" className="loginInput" value={this.state.email} onChange={this.handleChange} placeholder="abc@gmail.com" required="required" />
