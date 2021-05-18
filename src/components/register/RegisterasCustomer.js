@@ -99,6 +99,8 @@ export default class RegisterAsCust extends React.Component {
       .then(data => {
         if(data.token) {
           console.log("SignUp Successful");
+          window.open('/login','_self')
+
         } else {
           console.log(data)
         }
