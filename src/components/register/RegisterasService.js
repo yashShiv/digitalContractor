@@ -94,7 +94,7 @@ export default class RegisterAsService extends React.Component {
       requestBody.email = formData.get('email');
       requestBody.password = formData.get('password');
       requestBody.service = formData.get('service');
-      fetch('/signup/s', {
+      fetch('http://localhost:4000/signup/s', {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
