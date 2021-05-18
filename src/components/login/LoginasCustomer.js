@@ -59,7 +59,7 @@ export default class LoginAsCust extends React.Component {
       requestBody.email = formData.get('email');
       requestBody.password = formData.get('password');
       
-      fetch('/signin/s', {
+      fetch('/signin/c', {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -68,7 +68,8 @@ export default class LoginAsCust extends React.Component {
       }).then(res=>res.json())
       .then(data => {
         if(data.token) {
-          localStorage.setItem("jwt", data.token)
+          localStorage.setItem("jwt", data.token);
+          localStorage.setItem("type", "customer");
           console.log("Signin Successful");
         } else {
           console.log(data)
