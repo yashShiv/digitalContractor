@@ -23,11 +23,11 @@ const ServiceList = ({list}) => {
                 </div>
                 <div className="list_card_column">
                   <h3 className="list_data">Name: {item.name.firstname} {item.name.lastname}</h3>
-                  <h3 className="list_data">Charges: {item.rate}</h3>
+                  <h3 className="list_data">Charges: {`Rs\. ${item.rate} per ${item.unit}`}</h3>
                 </div>
                 <div className="list_card_column">
                   <h3 className="list_data">{item.service}</h3>
-                  <h3 className="list_data">Location: </h3>
+                  <h3 className="list_data">Location: {item.address.city}</h3>
                   <NavLink className="list_button" to={`/viewprofile/${item._id}`}>Know More</NavLink>
                 </div>
 
