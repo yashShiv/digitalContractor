@@ -28,7 +28,7 @@ const ServiceList = ({list}) => {
                 <div className="list_card_column">
                   <h3 className="list_data">{item.service}</h3>
                   <h3 className="list_data">Location: </h3>
-                  <NavLink className="list_button" to={`/viewprofile/${item.id}`}>Know More</NavLink>
+                  <NavLink className="list_button" to={`/viewprofile/${item._id}`}>Know More</NavLink>
                 </div>
 
               </div>
