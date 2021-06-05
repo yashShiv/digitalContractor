@@ -1,80 +1,52 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import profile_img from "../../carpenter-temp.jpeg";
 import asset_img from "../../gallery/img1.jpg";
 import "./style.css";
+import CustomerProfile from './CustomerProfile';
+import ServiceProfile from './ServiceProfile';
 
 const Profile = () => {
-  const name = "Yashaswi Shivank";
-  const profession = "Carpenter";
-  const joined = "Jan 4th 2022";
-  const experience = 2;
-  const scale = "year";
+  const type = localStorage.getItem('type');
+  const [user, setUser] = useState(null);
+  useEffect(() => {
+    const getUserData = async () => {
+      if(localStorage.getItem('jwt') != null) {
+        if(localStorage.getItem('type') === 'customer') {
+            await fetch('/api/c/user', {
+                method: "GET",
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem('jwt')}`
+                }
+            }).then(response=>response.json())
+            .then(data => {
+              setUser(data.data);
+            })
+        } else {
+            await fetch('/api/s/user', {
+            method: "GET",
+            headers: {
+              authorization: `Bearer ${localStorage.getItem('jwt')}`
+            }
+          }).then(response=>response.json())
+            .then(data => {
+              setUser(data.data);
+            })
+        }
+      }
+    }
+    getUserData();
+  }, [setUser]);
 
   return (
-    <div className="frame">
-      <div className="flash">
-        <div className="flash__img">
-          <img src={profile_img} alt="" width="320px" height="240px" />
-        </div>
-        <div className="flash__info">
-          <span className="flash__info__field flash__info__field--name">{`${name}`}</span>
-          <span className="flash__info__field flash__info__field--profession">{`${profession}`}</span>
-          <span className="flash__info__field">Joined {`${joined}`}</span>
-          <span className="flash__info__field">
-            For {`${experience}`} {`${scale}`}
-          </span>
-        </div>
-      </div>
-      <div className="detail">
-        <h2>Details</h2>
-        <div className="detail__pair">
-          <span className="detail__pair__key">Mobile Number:</span>
-          <span className="detail__pair__value">(+91)9123487654</span>
-        </div>
-        <div className="detail__pair">
-          <span className="detail__pair__key">Experience:</span>
-          <span className="detail__pair__value">20 years</span>
-        </div>
-        <div className="detail__pair">
-          <span className="detail__pair__key">Charge:</span>
-          <span className="detail__pair__value">Rs. 20/ sq. ft.</span>
-        </div>
-      </div>
-      <div className="gallery">
-        <h2>Gallery</h2>
-        <div className="gallery__carousel">
-          <div className="gallery__carousel__img">
-            <img src={asset_img} alt="" width="320px" height="240px" />
-          </div>
-          <div className="gallery__carousel__img">
-            <img src={asset_img} alt="" width="320px" height="240px" />
-          </div>
-          <div className="gallery__carousel__img">
-            <img src={asset_img} alt="" width="320px" height="240px" />
-          </div>
-          <div className="gallery__carousel__img">
-            <img src={asset_img} alt="" width="320px" height="240px" />
-          </div>
-          <div className="gallery__carousel__img">
-            <img src={asset_img} alt="" width="320px" height="240px" />
-          </div>
-          <div className="gallery__carousel__img">
-            <img src={asset_img} alt="" width="320px" height="240px" />
-          </div>
-        </div>
-      </div>
-      <div className="reviews">
-        <h2>Reviews</h2>
-        <div className="userreview">
-          <div className="user">
-            <span className="username">Abhisar Shukla</span><span className="ratings">⭐⭐⭐⭐</span>
-          </div>
-          <div className="review">
-            <p>This guy is genius, an expert in carpentry. Just ask him anything and he will make it.</p>
-          </div>
-        </div>
-      </div>
-    </div>
+    user == null
+    ?
+    <div>Loading...</div>
+    :
+    type === 'customer'
+    ?
+    <CustomerProfile data={user}/>
+    :
+    <ServiceProfile data={user}/>
   );
 };
 
