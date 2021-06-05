@@ -53,7 +53,7 @@ export default class RegisterAsCust extends React.Component {
     }
 
     if (!ck_phone.test(this.state.phone)) {
-      phoneError = "Must contain 11 digits only";
+      phoneError = "Must contain 10 digits only";
     }
 
     

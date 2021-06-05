@@ -1,4 +1,5 @@
 import React from 'react';
+import {NavLink} from 'react-router-dom'
 import './style.css';
 
 const CustomerProfile = (props) => {
@@ -28,7 +29,15 @@ const CustomerProfile = (props) => {
             <span className="detail__pair__key">Address:</span>
             <span className="detail__pair__value">{getAddress(data.address)}</span>
             </div>
+            <div className="detail__pair">
+            <span className="detail__pair__key">Email:</span>
+            <span className="detail__pair__value">{data.email}</span>
+            </div>
         </div>
+        <NavLink to={{
+            pathname: "/updateData",
+            state: {data}
+        }}>Update</NavLink>
     </div>
     );
 }

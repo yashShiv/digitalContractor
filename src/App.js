@@ -14,6 +14,7 @@ import Services from "./components/services/services";
 import Filter from "./components/filter/filter";
 import Contracts from "./components/Contracts/contracts";
 import VProfile from "./components/ViewProfile/vProfile";
+import UpdateProfile from './components/updateProfile/UpdateProfile';
 
 function App() {
   return (
@@ -29,9 +30,10 @@ function App() {
           <Route exact path="/services" component={Filter} />
           <Route exact path="/" component={HomePage} />
           <Route exact path="/contracts" component={Contracts} />
+          <Route exact path="/updateData" component={UpdateProfile} />
           <Route exact path="/viewprofile/:userID">
               <VProfile/>
-            </Route>
+          </Route>
         </Switch>
         <Footer />
       </BrowserRouter>
