@@ -40,15 +40,15 @@ const Filter = () => {
         console.log(list)
         setList(list.filter((item)=>{
             if(service!=="" && loc!==""){
-                return item.serviceType===service && item.location===loc;
+                return item.service===service && item.address.city===loc;
             }
             else{
                 if(service!=="" && loc===""){
-                    return item.serviceType===service;
+                    return item.service===service;
                 }
     
                 else if(loc!==""){
-                    return item.location===loc;
+                    return item.address.city===loc;
                 }
                 else{
                     return item
