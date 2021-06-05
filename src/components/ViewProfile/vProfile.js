@@ -7,10 +7,25 @@ import { useParams } from "react-router";
 
 const VProfile = () => {
   const {userID} = useParams([]);
-  const [user, setUser] = React.useState(DummyServices.filter((item)=>{
-    return item.id==userID;
-  }
-  ));
+  const [user, setUser] = React.useState([]);
+  React.useEffect(() => {
+    fetch('/api/all', {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json"
+        },
+      }).then(res=>res.json())
+      .then(data => {
+        console.log(data.data);
+        setUser(data.data.filter((item)=>{
+          return item._id==userID;
+        }
+        ))
+        
+
+        // console.log(list[0]);
+      });
+  }, []);
   const name = "Yashaswi Shivank";
   const profession = "Carpenter";
   const joined = "Jan 4th 2022";
@@ -30,27 +45,27 @@ const VProfile = () => {
           <img src={profile_img} alt="" width="320px" height="240px" />
         </div>
         <div className="flash__info">
-          <span className="flash__info__field flash__info__field--name">{item.name}</span>
-          <span className="flash__info__field flash__info__field--profession">{item.serviceType}</span>
+          <span className="flash__info__field flash__info__field--name">{item.name.firstname} {item.name.lastname}</span>
+          <span className="flash__info__field flash__info__field--profession">{item.service}</span>
           <span className="flash__info__field">Joined {`${joined}`}</span>
           <span className="flash__info__field">
-            For {`${experience}`} {item.charges}
+            For {item.experience} 
           </span>
         </div>
       </div>
       <div className="detail">
         <h2>Details</h2>
         <div className="detail__pair">
-          <span className="detail__pair__key">Mobile Number:</span>
-          <span className="detail__pair__value">(+91)9123487654</span>
+          <span className="detail__pair__key">Email ID:</span>
+          <span className="detail__pair__value">{item.email}</span>
         </div>
         <div className="detail__pair">
           <span className="detail__pair__key">Experience:</span>
-          <span className="detail__pair__value">20 years</span>
+          <span className="detail__pair__value">{item.experience} years</span>
         </div>
         <div className="detail__pair">
           <span className="detail__pair__key">Charge:</span>
-          <span className="detail__pair__value">Rs. 20/ sq. ft.</span>
+          <span className="detail__pair__value">Rs.{item.rate}/ sq. ft.</span>
         </div>
       </div>
       <div className="gallery">
