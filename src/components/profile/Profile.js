@@ -2,68 +2,51 @@ import React, {useEffect, useState} from "react";
 import profile_img from "../../carpenter-temp.jpeg";
 import asset_img from "../../gallery/img1.jpg";
 import "./style.css";
+import CustomerProfile from './CustomerProfile';
+import ServiceProfile from './ServiceProfile';
 
 const Profile = () => {
-  const [userData, setUserData] = useState({})
-  let type = localStorage.getItem("type");
+  const type = localStorage.getItem('type');
+  const [user, setUser] = useState(null);
   useEffect(() => {
-    if (type === "seller") {
-      fetch('/api/s/user', {
-        method: "GET",
-        headers: {
-          authorization: `Bearer ${localStorage.getItem('jwt')}`
+    const getUserData = async () => {
+      if(localStorage.getItem('jwt') != null) {
+        if(localStorage.getItem('type') === 'customer') {
+            await fetch('/api/c/user', {
+                method: "GET",
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem('jwt')}`
+                }
+            }).then(response=>response.json())
+            .then(data => {
+              setUser(data.data);
+            })
+        } else {
+            await fetch('/api/s/user', {
+            method: "GET",
+            headers: {
+              authorization: `Bearer ${localStorage.getItem('jwt')}`
+            }
+          }).then(response=>response.json())
+            .then(data => {
+              setUser(data.data);
+            })
         }
-      }).then(response=>response.json())
-        .then(data => {
-          setUserData(data.data);
-        })
-    } else {
-      fetch('/api/c/user', {
-        method: "GET",
-        headers: {
-          authorization: `Bearer ${localStorage.getItem('jwt')}`
-        }
-      }).then(response=>response.json())
-        .then(data => {
-          setUserData(data.data);
-        })
+      }
     }
-  }, [type]);
-
-  const getAddress = (address) => {
-    if (!address)
-      return undefined;
-    return `${address?.house_no || ""} ${address?.city || ""} ${address?.state || ""} ${address?.zip || ""}`;
-  }
+    getUserData();
+  }, [setUser]);
 
   return (
-    <div className="frame">
-      <div className="flash">
-        <div className="flash__info">
-          <span className="flash__info__field flash__info__field--name">{`${userData?.name?.firstname || "Loading"} ${userData?.name?.lastname || "Loading"}`}</span>
-          <span className={"flash__info__field flash__info__field--profession" + (type === 'customer' ? ' hidden' : '')}>{`${userData?.service || "Loading"}`}</span>
-        </div>
-      </div>
-      <div className="detail">
-        <h2>Details</h2>
-        <div className="detail__pair">
-          <span className="detail__pair__key">Mobile Number:</span>
-          <span className="detail__pair__value">{`${userData?.mobile_number || "Loading"}`}</span>
-        </div>
-        <div className={"detail__pair" + (type === 'customer' ? ' hidden' : '')}>
-          <span className="detail__pair__key">Experience:</span>
-          <span className="detail__pair__value">{`${userData?.experience || "Loading"}`} years</span>
-        </div>
-        <div className={"detail__pair" + (type === 'customer' ? ' hidden' : '')}>
-          <span className="detail__pair__key">Charge:</span>
-          <span className="detail__pair__value">Rs. {`${userData?.rate || "Loading"}`}/ {`${userData?.unit || "Loading"}`}</span>
-        </div>
-        <div className="detail__pair">
-          <span className="detail__pair__key">Address:</span>
-          <span className="detail__pair__value">{`${getAddress(userData?.address) || "Loading"}`}</span>
-        </div>
-      </div>
-    </div>
+    user == null
+    ?
+    <div>Loading...</div>
+    :
+    type === 'customer'
+    ?
+    <CustomerProfile data={user}/>
+    :
+    <ServiceProfile data={user}/>
   );
 };
 
