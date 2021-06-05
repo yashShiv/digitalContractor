@@ -35,7 +35,10 @@ const Navbar = (props) => {
       )}
       
       <li><NavLink exact to="/contact">Contact</NavLink></li>
-      <li><NavLink exact to="/profile"><i className="fa fa-user"></i> Profile</NavLink></li>
+      {(localStorage.getItem("jwt")!=null &&
+        <li><NavLink exact to="/profile"><i className="fa fa-user"></i> Profile</NavLink></li>
+      )}
+      
       {(localStorage.getItem("jwt")!=null &&
         <button onClick={logout} className="logout">Logout</button>
       )}
